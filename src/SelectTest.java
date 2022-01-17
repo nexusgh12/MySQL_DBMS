@@ -1,4 +1,3 @@
-package MySQL_DBMS;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
