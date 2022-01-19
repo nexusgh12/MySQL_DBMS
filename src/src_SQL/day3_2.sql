@@ -54,3 +54,6 @@ create table buytbl
     buydate     datetime default now(),
     primary key (buyno)
 );
+
+
+

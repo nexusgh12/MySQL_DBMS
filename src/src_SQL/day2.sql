@@ -37,7 +37,32 @@ select locate('b', 'abcd');
 select insert('가나다라마', 2, 3, '@@@');
 select reverse('가나다라마');
 
+select lcase('aBcDe');
+select ucase('aBcDe');
 
+select substring('abcdef', 3, 2) name;
+select substring_index('jaehoney.tistory.com', '.', 2);
+select substring_index('jaehoney.tistory.com', '.', -2);
 
+select substring(first_name, 1,char_length(first_name)*0.5) from employees;
 
+select lpad('jung-sick', 10, '*') name;
+select rpad('jung-sick', 10, '*') name;
+
+select rpad(substring(first_name, 1, char_length(first_name)*0.5), char_length(first_name), '*') from employees;
+select first_name from employees;
+
+select repeat('abc', 3);
+
+SELECT REPLACE ('JACK and JUE', 'J', 'BL') "Changes";
+SELECT REPLACE ('JACK and JUE', 'JA', 'BL') "Changes";
+SELECT REPLACE ('JACK and JUE', 'j', 'BL') "Changes";
+
+select ltrim('   abc');
+select rtrim('abc  ');
+select trim(' abc ');
+
+select trim(both 'a' from 'aababaa')"TRIM Example";
+
+select substring_index('nexusgh12@gmail.com', '@', 1), substring_index('nexusgh12@gmail.com', '@', -1);
 
