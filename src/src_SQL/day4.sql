@@ -2,6 +2,28 @@ use demo;
 desc emp2;
 select * from emp2;
 
+-- [실습] 사원테이블에서 scott의 급여보다 많은 사원의 사원번호, 이름, 업무, 급여를 출력하세요.**
+select EMPNO, ENAME, JOB, SAL
+from emp
+where sal>(select sal from emp where ENAME='scott');
+
+-- [문제1] 사원 테이블에서 사원명, 입사일, 담당업무, 부서코드를 선택하되 ‘ADAMS’와
+-- 같은 업무를 하는 사원이거나 ‘SCOTT’과 같은 부서인 사원을 선택하라.**
+select ENAME, HIREDATE, JOB, EMPNO from emp
+where job = (select job from emp where ename='adams') or
+                                       DEPTNO=(select DEPTNO from emp where ename = 'scott');
+
+-- [문제2] 사원테이블에서 사원번호가 7521인 사원과 업무가 같고 급여가 7934인 사원보다
+-- 많은 사원의 사번,이름,업무,입사일자,급여를 출력하세요.
+select EMPNO, ENAME, JOB, HIREDATE, SAL
+from emp
+where job = (select job from emp where EMPNO = 7521) and sal>(select SAL from emp where EMPNO=7934);
+
+-- [실습]사원테이블에서 급여의 평균보다 적은 사원의 사번, 이름, 업무, 급여, 부서번호를 선택하라.
+select EMPNO, ENAME, JOB, SAL, DEPTNO from emp
+where SAL<(select avg(SAL) from emp);
+
+
 -- 테이블에 필드를 추가한다.
 -- emp2 테이블에 연락처를 저장 할 필드 추가
 alter table emp2 add tel varchar(15);
